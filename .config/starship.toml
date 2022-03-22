@@ -1,0 +1,116 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$time\
+$line_break\
+$jobs\
+$battery\
+$status\
+$shell\
+$character"""
+
+[character]
+success_symbol = "[∴](bold fg:201)"
+error_symbol = "[∵](bold fg:51)"
+
+[directory]
+truncate_to_repo = false
+truncation_symbol = "…/"
+style = "bold fg:91"
+
+[memory_usage]
+disabled = false
+threshold = 75
+format = "[${ram}( | ${swap})]($style) "
+
+[git_branch]
+format = "[$symbol$branch]($style) [|](bold dimmed white) "
+style = "bold fg:207"
+
+[hg_branch]
+disabled = false
+format = "[$symbol$branch]($style) [|](bold dimmed white) "
+style = "bold fg:207"
+
+[python]
+detect_extensions = []
+style = "bold fg:202"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)'
+
+[[battery.display]]
+threshold = 4
+style = "bold fg:51"
+
+[[battery.display]]
+threshold = 10
+style = "bold fg:91"
+
+[package]
+disabled = true
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "fg:8"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "fg:202"
+
+#[nodejs]
+#format = ""

@@ -1,0 +1,100 @@
+# example user config (see 'hg help config' for more info)
+[ui]
+# name and email, e.g.
+# username = Jane Doe <jdoe@example.com>
+username = loan<loan@yaal.fr>
+# We recommend enabling tweakdefaults to get slight improvements to
+# the UI over time. Make sure to set HGPLAIN in the environment when
+# writing scripts!
+# tweakdefaults = True
+
+# uncomment to disable color in command output
+# (see 'hg help color' for details)
+# color = never
+
+# uncomment to disable command output pagination
+# (see 'hg help pager' for details)
+# paginate = never
+
+[extensions]
+# uncomment these lines to enable some popular extensions
+# (see 'hg help extensions' for more info)
+#
+# churn=
+shelve=
+mercurial_keyring=
+color=
+rebase=
+strip=
+purge=
+hgk=
+
+[paths]
+#richsms_v2 = https://deploy.yaal.fr/hg/richsms-v2
+#yzodb = https://deploy.yaal.fr/hg/yzodb
+#matomo = https://deploy.yaal.fr/hg/matomo
+# mserversetup = https://deploy.yaal.fr/hg/mserversetup
+#sms = https://deploy.yaal.fr/hg/sms
+#ysms = https://deploy.yaal.fr/hg/ysms
+
+[auth]
+yaal.prefix = deploy.yaal.fr
+yaal.username = loan
+yaal.schemes = https
+
+myelefant.prefix = deploy.myelefant.com
+myelefant.username = loan
+myelefant.schemes = https
+#richsms_v2.username = loan
+#richsms_v2.prefix =  https://deploy.yaal.fr/hg/richsms-v2
+#yzodb.username = loan
+#yzodb.prefix =  https://deploy.yaal.fr/hg/yzodb 
+#matomo.username = loan
+#matomo.prefix = https://deploy.yaal.fr/hg/matomo
+# mserversetup.username = loan
+# mserversetup.prefix = https://deploy.myelefant.com/hg/mserversetup
+#sms.username = loan
+#sms.prefix = https://deploy.yaal.fr/hg/sms
+#ysms.username = loan
+#ysms.prefix = https://deploy.yaal.fr/hg/ysms
+#yserversetup.username = loan
+#yserversetup.prefix = https://deploy.yaal.fr/hg/yserversetup
+
+[templates]
+lg = '{label("log.branch", ifeq(branch, "default", "*", branch))} {label("changeset.{phase}", rev)} {label("log.date", date|rfc822date)} {label("grep.user", author|user)} {label("log.tag", if(tags," {tags}"))} {bookmarks % "{ifeq(bookmark, currentbookmark, label('log.activebookmark', bookmark), label('log.bookmark', bookmark))} "}\n    {label(ifcontains(rev, revset('parents()'), 'desc.here'),desc|firstline)}'
+
+[color]
+mode=terminfo
+
+#Custom colours
+color.orange=202
+color.greyorange=136
+color.lightyellow=191
+color.darkyellow=220
+color.brightyellow=226
+
+#Colours for each label
+log.branch=cyan
+log.summary=lightyellow
+log.description=lightyellow
+log.bookmark=green
+log.tag=yellow
+log.activebookmark = green bold underline
+log.date = greyorange
+
+changeset.public=orange bold
+changeset.secret=blue bold
+changeset.draft=brightyellow bold
+
+desc.here=bold blue_background
+
+[alias]
+lg = log --graph --template=lg
+
+[merge]
+tool=p4merge
+%include ~/tortoisehg/contrib/mergetools.rc
+
+
+[tortoisehg]
+ui.language = en

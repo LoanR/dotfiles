@@ -19,7 +19,7 @@ for filepath in $(find * -type f -print); do
     if [[ $watch_file == true ]] && [[ "$filepath" != `basename "$0"` ]] && ! cmp -s "$home$filepath" "$filepath"; then
         printf "\nChanges in $filepath\n\n"
         diff --color -u "$filepath" "$home$filepath"
-        read -p "Do you want to apply those changes [y,n]?" -r validation
+        read -p "Do you want to apply those changes [y,n]? " -r validation
         if [[ $validation =~ ^[Yy]$ ]]; then
             cp "$home$filepath" "$filepath"
             printf "\nChanges applied\n\n   ------\n"

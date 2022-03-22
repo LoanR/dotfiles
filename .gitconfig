@@ -1,0 +1,11 @@
+[pull]
+	rebase = true
+[alias]
+    ##lg = log --graph --all --pretty=format:'%D %h %aD %an %n     %s'
+	list-branch = ! git for-each-ref --format=' %(authorname) %09 %(refname)' --sort=authorname
+    lg = log --graph --all --pretty=format:'%C(202)%h%Creset -%C(51)%d%Creset %s %C(207)%ad %C(91)%an%Creset' --date=format:'%d/%m/%Y %H:%Ms' --abbrev-commit
+[user]
+	email = loan.rbrt@gmail.com
+	name = loanR
+[includeIf "gitdir:~/Development/myElefant/"]
+    path = ~/Development/myElefant/.gitconfig
